@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>AngularJS Expressions Example</title>
+        <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular.min.js">
+        </script>
+    </head>
+    <body>
+        <h1>An Expressions Example</h1>
+        <div ng-app="" ng-init="quantity=1;cost=30; student={firstname:'James',lastname:'Donkey',rollno:102};marks=[80,40,78,82,63]">
+            <p>Name: {{student.firstname + " " + student.lastname}}!</p>
+            <p>Marks [3]: {{marks[3]}}</p>
+            <p>Roll No: {{student.rollno}}</p>
+            <p>Books Expenses: {{cost * quantity}} Rs</p>
+        </div>
+    </body>
+</html>
