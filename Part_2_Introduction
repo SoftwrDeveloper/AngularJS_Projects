@@ -1,0 +1,39 @@
+First Application Code:
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>The First Application</title>
+        <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular.min.js">
+        </script>
+    </head>
+    <body ng-app="myApp">
+        <div ng-controller="HelloController">
+            <h1>Welcome to {{HelloTo.title}} lesson in Video Edit Tube Channel!</h1>
+        </div>
+        <script>
+            angular.module("myApp", []).controller("HelloController", function($scope) {
+                $scope.helloTo = {};
+                $scope.helloTo.title = "AngularJS";
+            });
+            </script>
+    </body>   
+</html>
+
+Second Application Code:
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>The Second Application</title>
+        <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular.min.js">
+        </script>
+    </head>
+    <body>
+        <h1>The Second Application</h1>
+        <div ng-app="">
+            <p>Enter your Name: <input type="text" ng-model="name"></p>
+            <p>Hello there by <span ng-bind="name"></span></p>
+        </div>
+    </body>
+</html>
