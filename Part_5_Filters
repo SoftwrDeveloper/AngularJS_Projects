@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>AngularJS Filters Application</title>
+        <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.15/angular.min.js"></script>
+    </head>
+    <body>
+        <h1>AngularJS Filters Application</h1>
+        <div ng-app="" ng-controller="studentController">
+            <table border="0">
+                <tr><td>Enter first name: </td><td><input type="text" ng-model="student.firstName"></td></tr>
+                <tr><td>Enter last name: </td><td><input type="text" ng-model="student.lastName"></td></tr>
+                <tr><td>Enter fees: </td><td><input type="text" ng-model="student.fees"></td></tr>
+                <tr><td>Enter subject: </td><td><input type="text" ng-model="subjectName"></td></tr>
+            </table>
+            <br/>
+            <table border="0">
+                <tr><td>Name in Upper Case: </td><td>{{student.fullName() | uppercase}}</td></tr>
+                <tr><td>Name in Lower case: </td><td>{{student.fullName() | lowercase}}</td></tr>
+                <tr><td>fees: </td><td>{{student.fees | currency}}</td></tr>
+                <tr><td>Subject:</td></tr>
+                <ul>
+                    <li ng-repeat="subject in student.subjects | filter: subjectName | orderBy: 'marks'">{{subject.name + ', marks:' + subject.marks }}
+                    </li>
+                </ul>
+            </table> 
+        </div>
+        <script>
+        function studentController($scope) {
+            $scope.student = {
+                firstName: "James",
+                lastName: "Donkey",
+                fees: 700,
+                subjects:[
+                    {name: 'JavaScript',marks:80},
+                    {name: 'HTML',marks:60},
+                    {name: 'CSS',marks:70},
+                    {name: 'Java',marks:90}
+                ],
+                fullName: function() {
+                    var studentObject;
+                    studentObject = $scope.student;
+                    return studentObject.firstName + " " + studentObject.lastName;
+                }
+            }
+        }
+        </script>
+    </body>
+</html>
