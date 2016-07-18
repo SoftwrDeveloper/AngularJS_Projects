@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>AngularJS Scopes Application</title>
+        <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.15/angular.min.js"></script>
+    </head>
+    <body>
+        <h2>AngularJS Scopes Application</h2>
+        <div ng-app="mains" ng-controller="squareController">
+            <p>{{ message }} <br/> {{ type }}</p>
+            <div ng-controller="rectangleController">
+                <p>{{ message }} <br/> {{ type }}</p></div>
+            <div ng-controller="sphereController">
+                <p>{{ message }} <br/> {{ type }}</p></div>
+        </div>
+        <script>
+            var mains = angular.module("mains", []);
+            mains.controller("squareController", function($scope) {
+                $scope.message = "The square controller";
+                $scope.type = "Square";
+            });
+            mains.controller("rectangleController", function($scope) {
+                $scope.message = "The rectangle controller";
+                $scope.type = "Rectangle";
+            });
+            mains.controller("sphereController", function($scope) {
+                $scope.message = "The sphere controller";
+                $scope.type = "Sphere";
+            });
+        </script>
+    </body>
+</html>
